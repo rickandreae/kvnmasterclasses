@@ -1,0 +1,70 @@
+<header id="header" class="header" data-extension="Contact" style="background-image: url('http://kweekvijvernoord.com/wp-content/uploads/2017/04/Kweekvijver_header.jpg');">
+
+	
+      
+
+ <div class="container header__container">
+
+            
+            <div class="header__inner header__inner--large">
+
+                <div class="header__responsive-line">
+
+                    <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/img/top-line-header-title.png">
+
+                </div>
+
+                <h1 class="header__title text-transform-uppercase"> CHANGE IS THE END RESULT OF ALL TRUE LEARNING</h1>
+
+                <div class="header__responsive-line">
+
+                    <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/img/bottom-line-header-title.png">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+
+            <section class="section section--alpha"> 
+                <div class="container">    
+            <section class="section section--alpha"> 
+                <div class="container">    
+                    <div id="cards" class="cards">
+                                {% for mediabrons in mediabrons %}
+                                 <div class="card card--alpha" style="height: 483px;">
+                                    <?php $mediaid = $mediabrons->media_id; ?> 
+                                    <h6 style="position:absolute; float:right;">
+                                    </h6> 
+                                        <a href="playbrons?id=<?php echo $mediaid;?>">  
+                                            <img src="/kphalcon/public/img/thumbnail/{{ mediabrons.thumbnail }}.jpg" height="200"   width="300">
+                                            </img>
+                                        </a>
+                                    <div class="card__content">
+                                        <h5 class="card__title">{{mediabrons.titel}}<br>
+                                        <span class="text">
+                                                    <?php
+                                                        $mediabrons = mediabrons::findFirstBymedia_id($mediaid);
+                                                        $date = $mediabrons->event_date;
+                                                         setlocale(LC_ALL,'nld_NLD');
+                                                                $event_date = strftime('%e %B', strtotime($date));
+                                                                $this->view->message = $event_date;
+                                                                echo($event_date);
+                                                    ?>
+                                        </span>
+                                                </h5>
+                                        <p class="card__intro" data-ellipsis="" style="word-wrap: break-word;">{{mediabrons.description}}</p>
+                                        <ul class="list-inline">
+                                            <a data-show-article="" class="btn btn--ghost btn--epsilon btn--right-arrow btn--medium icon icon--right-open-1 icon--margin-alpha" href="playbrons?id=<?php echo $mediaid;?>">bekijk masterclass</a>
+                                        </ul>
+                                </div>    
+                            </div>
+                      {% endfor %} 
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,49 @@
+.alignbody
+{
+	display: block;
+	text-align: center;
+}
+.alignpackage
+{
+	display: inline-block;
+	width: 200px;
+}
+
+.credits
+{
+	padding-bottom:40px;
+	border-top: solid 3px black;
+	border-bottom: solid 3px black;
+	margin: 18px;
+}
+.creditpacks
+{
+	border-left: solid 3px black;
+	border-right: solid 3px black;
+	border-bottom: solid 3px black;
+}
+.creditpack1
+{
+	background-color: #FFDC00;
+}
+.creditpack2
+{
+	background-color: #FFDC00;
+}
+.creditpack3
+{
+	background-color: #FFDC00;
+}
+.creditpack4
+{
+	background-color: #FFDC00;
+}
+.creditpack5
+{
+	background-color: #FFDC00;
+}
+.money
+{
+	border-top: solid 3px black;
+	border-bottom: solid 3px black;
+}

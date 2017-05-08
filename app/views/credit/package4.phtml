@@ -1,0 +1,17 @@
+<h2 class="creditpack4 creditpacks">25 Tickets</h2>
+<h4 class="money">€1750,-</h4>
+
+<input type="submit" value="Koop Tickets" class="btn btn--ghost btn--epsilon btn--right-arrow btn--medium icon icon--right-open-1 icon--margin-alpha" data-fancybox data-src="#kooptickets25" href="javascript:;">
+
+<div style="display: none;" id="kooptickets25">
+	<div class="container container-beta">
+	<h6>Weet je zeker dat je 25 tickets wil aanschaffen?</h6>
+		<p>Om bij een masterclass aanwezig te kunnen zijn hebt u een ticket nodig. Deze kunt u hier aanschaffen. Hoe meer tickets u aanschaft, des te goedkoper ze worden.</p>
+		{{ form("session/buycredit") }} 
+		{{ text_field("credits", "value": "25", "style":"display:none")}}
+		{{ submit_button("submit", "class": "btn btn-primary") }}
+		{{ end_form() }}
+	</div>
+</div>		
+
+		

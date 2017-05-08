@@ -1,0 +1,23 @@
+<!DOCTYPE html> 
+<html class="js flexbox flexboxlegacy canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths csspositionsticky app-active  js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths csspositionsticky"> 
+	<head>
+	    <title>Kphalcon</title> 
+	    	<?= $this->tag->stylesheetLink('css/style.css') ?>
+	    	<?= $this->tag->stylesheetLink('css/alignpackage.css') ?>
+	    	<?= $this->tag->stylesheetLink('css/jquery.fancybox.min.css') ?>
+	</head>
+	<body>
+		
+			<?= $this->partial('layouts/header') ?> 
+			<?= $this->getContent() ?> 
+			<?= $this->tag->javascriptInclude('/mpdf/mpdf.php') ?>
+					 
+			<?= $this->tag->javascriptInclude('/js/jquery-3.1.1.min.js') ?> 
+			<?= $this->tag->javascriptInclude('/js/main.js') ?>
+			<?= $this->tag->javascriptInclude('/js/register.js') ?>
+			<?= $this->tag->javascriptInclude('/js/jquery.min.js') ?>
+			<?= $this->tag->javascriptInclude('https://cloud.tinymce.com/stable/tinymce.min.js') ?>
+			<?= $this->tag->javascriptInclude('/plugin/tinymce/init-tinymce.js') ?>
+			<?= $this->tag->javascriptInclude('/js/jquery.fancybox.min.js') ?>
+	</body>
+</html>

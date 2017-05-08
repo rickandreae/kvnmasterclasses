@@ -1,0 +1,112 @@
+<header id="header" class="header" data-extension="Contact" style="background-image: url('http://kweekvijvernoord.com/wp-content/uploads/2017/04/header-contact.jpg');">
+
+    </header>
+<main id="main" class="site-main" role="main">
+    	<section class="section section--alpha no-top-padding">
+        	<div class="container">
+            	<div class="grid  ">
+				<div class="column-8">
+				         
+                    <section class="section section--alpha no-top-padding ">
+<div class="container container-fluid">
+<div class="grid  ">
+<div class="column-12 ">
+<h4><span class="color-beta">Contact</span></h4>
+Bent u klaar voor een uitdagende samenwerking? Neem vrijblijvend contact op.
+
+
+    <div class="gf_browser_chrome gform_wrapper" id="gform_wrapper_1">
+        <?= $this->tag->form(['contact']) ?>
+
+        <?= $this->tag->textField(['Naam', 'class' => 'formspacing', 'placeholder' => 'Naam']) ?>
+
+        <?= $this->tag->textField(['E-mailadres', 'class' => 'formspacing', 'placeholder' => 'E-mailadres']) ?>
+
+        <?= $this->tag->textField(['Telefoon', 'class' => 'formspacing', 'placeholder' => 'Telefoon']) ?>
+
+        <?= $this->tag->textArea(['Bericht', 'class' => 'formspacing', 'placeholder' => 'Bericht / Vraag']) ?>
+
+        <?= $this->tag->submitButton(['Verzenden', 'class' => 'margin-gamma-top btn btn--dark btn--ghost btn--medium']) ?>
+
+        <?= $this->tag->endForm() ?>
+    </div>
+            
+<script>
+
+$(document).ready(function() {
+$("#submit_btn").click(function() { 
+       
+        var proceed = true;
+        //simple validation at client's end
+        //loop through each field and we simply change border color to red for invalid fields       
+        $("#contact_form input[required=true], #contact_form textarea[required=true]").each(function(){
+            $(this).css('border-color',''); 
+            if(!$.trim($(this).val())){ //if this field is empty 
+                $(this).css('border-color','red'); //change border color to red   
+                proceed = false; //set do not proceed flag
+            }
+            //check invalid email
+            var email_reg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/; 
+            if($(this).attr("type")=="email" && !email_reg.test($.trim($(this).val()))){
+                $(this).css('border-color','red'); //change border color to red   
+                proceed = false; //set do not proceed flag              
+            }   
+        });
+       
+        if(proceed) //everything looks good! proceed...
+        {
+            //get input field values data to be sent to server
+            post_data = {
+                'Naam'     : $('input[name=name]').val(), 
+                'E-mailadres'    : $('input[name=email]').val(),
+                'Telefoon'  : $('input[name=phone2]').val(),
+                'Bericht'           : $('textarea[name=message]').val()
+            };
+            
+            //Ajax post data to server
+            $.post('contact_me.php', post_data, function(response){  
+                if(response.type == 'error'){ //load json data from server and output message     
+                    output = '<div class="error">'+response.text+'</div>';
+                }else{
+                    output = '<div class="success">'+response.text+'</div>';
+                    //reset values in all input fields
+                    $("#contact_form  input[required=true], #contact_form textarea[required=true]").val(''); 
+                    $("#contact_form #contact_body").slideUp(); //hide form after success
+                }
+                $("#contact_form #contact_results").hide().html(output).slideDown();
+            }, 'json');
+        }
+});
+
+</script>
+
+</div>
+</div>
+</div>
+</section>        			                </div>
+            
+            <div class="column-4">
+            	<p class="text"><strong>Adres</strong><br>Zuiderplein 4<br>8911 AJ Leeuwarden</p>
+            	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2389.977692089661!2d5.787979415558343!3d53.20031627994871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c8fe820d6b9567%3A0x1496149010f309cc!2sNeushoorn!5e0!3m2!1snl!2snl!4v1488807333066" width="300" height="250" frameborder="5" style="border:5px" allowfullscreen></iframe>
+<p class="text"><strong>Contact</strong><br>T.&nbsp;06 533 68 535<br>E. <a href="mailto:info@kweekvijvernoord.nl">info@kweekvijvernoord.nl</a></p>
+<strong>Sociale Media:</strong> <br>
+<a href="https://www.facebook.com/KweekvijverNoord.nl">Twitter</a> -- 
+<a href="https://twitter.com/Kweekvijvern">Facebook</a> -- 
+<a href="https://plus.google.com/+KweekvijverNoord">Google+</a> -- 
+<a href="https://www.youtube.com/channel/UCWV6W0eT3Z4LSiNfedxDpCQ">Youtube</a><br>
+<p class="text">&nbsp;</p>
+<p class="text"><strong>Bankzaken<br></strong>KvK: 67752683<br>BTW: NL 8571.61.507.B.01&nbsp;</p>
+				</div>
+            </div>
+    	</div></section>        
+</main>
+
+<div class="container">
+
+</div>
+
+
+
+
+
+

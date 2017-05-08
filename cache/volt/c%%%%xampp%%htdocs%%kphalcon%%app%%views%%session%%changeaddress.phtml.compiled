@@ -1,0 +1,53 @@
+<header id="header" class="header" data-extension="Contact" style="background-image: url('http://kweekvijvernoord.com/wp-content/uploads/2017/04/Kweekvijver_young-creatives.jpg');">
+
+	
+      
+
+ <div class="container header__container">
+
+            
+            <div class="header__inner header__inner--large">
+
+                <div class="header__responsive-line">
+
+                    <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/img/top-line-header-title.png">
+
+                </div>
+
+                <h1 class="header__title text-transform-uppercase">VERANDER JE ADRES GEGEVENS.</h1>
+
+                <div class="header__responsive-line">
+
+                    <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/img/bottom-line-header-title.png">
+
+                </div>
+
+            </div>
+
+            
+            <div class="header__sub-text-container">
+
+                <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/svg/top-line-header-sub-text.svg">
+
+                <h4 class="header__sub-text text-transform-uppercase">Young creatives</h4>
+
+                <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/svg/bottom-line-header-sub-text.svg">
+
+            </div>
+
+        </div>
+
+</header>
+<?php 
+
+$users = users::find("");
+
+?>
+<div class="container">
+<?php echo $this->tag->form(array('session/changeaddress')); ?> 
+<?php echo $this->tag->textField(array('address', 'class' => 'form-control', 'placeholder' => 'Adres', 'pattern' => '[a-zA-Z]{99}\s?[1-999]{999}\[a-z]{1}')); ?> 
+<?php echo $this->tag->textField(array('zipcode', 'class' => 'form-control', 'placeholder' => 'Postcode', 'pattern' => '[1-9][0-9]{3}\s?[a-zA-Z]{2}')); ?>
+<?php echo $this->tag->textField(array('city', 'class' => 'form-control', 'placeholder' => 'Stad')); ?>
+<?php echo $this->tag->submitButton(array('submit', 'class' => 'btn btn-primary')); ?>
+<?php echo $this->tag->endForm(); ?>
+</div>

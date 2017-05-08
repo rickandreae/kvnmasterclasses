@@ -1,0 +1,52 @@
+<header id="header" class="header" data-extension="Contact" style="background-image: url('http://kweekvijvernoord.com/wp-content/uploads/2017/04/Kweekvijver_young-creatives.jpg');">
+
+	
+      
+
+ <div class="container header__container">
+
+            
+            <div class="header__inner header__inner--large">
+
+                <div class="header__responsive-line">
+
+                    <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/img/top-line-header-title.png">
+
+                </div>
+
+                <h1 class="header__title text-transform-uppercase">VERANDER JE TELEFOONNUMMER.</h1>
+
+                <div class="header__responsive-line">
+
+                    <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/img/bottom-line-header-title.png">
+
+                </div>
+
+            </div>
+
+            
+            <div class="header__sub-text-container">
+
+                <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/svg/top-line-header-sub-text.svg">
+
+                <h4 class="header__sub-text text-transform-uppercase">Young creatives</h4>
+
+                <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/svg/bottom-line-header-sub-text.svg">
+
+            </div>
+
+        </div>
+
+    </header>
+<?php 
+
+$users = users::find("");
+
+?>
+<div class="container">
+<?php echo $this->tag->form(array('session/changephone')); ?> 
+ <?php echo $this->tag->telField(array('phone', 'class' => 'form-control', 'placeholder' => 'Tel:XXXX-XXXXXX', 'pattern' => '\d{4}[\-]?\d{3}\d{3}')); ?>
+ <?php echo $this->tag->submitButton(array('submit', 'class' => 'btn btn--ghost btn--epsilon btn--right-arrow btn--medium icon icon--right-open-1 icon--margin-alphas')); ?>
+ <?php echo $this->tag->endForm(); ?>
+</div>
+<?php echo $message; ?>

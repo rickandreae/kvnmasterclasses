@@ -1,0 +1,52 @@
+<header id="header" class="header" data-extension="Contact" style="background-image: url('http://kweekvijvernoord.com/wp-content/uploads/2017/04/Kweekvijver_young-creatives.jpg');">
+
+	
+      
+
+ <div class="container header__container">
+
+            
+            <div class="header__inner header__inner--large">
+
+                <div class="header__responsive-line">
+
+                    <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/img/top-line-header-title.png">
+
+                </div>
+
+                <h1 class="header__title text-transform-uppercase">Admin Dashboard:<br><?= $auth['firstname'] ?> <?= $auth['lastname'] ?></h1>
+
+                <div class="header__responsive-line">
+
+                    <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/img/bottom-line-header-title.png">
+
+                </div>
+
+            </div>
+
+            
+        </div>
+
+</header>
+<?php
+	$users = users::find("");
+
+?>
+<div class="container">
+<?php if ($auth['lvl'] == 6) { ?>
+
+<?= $this->tag->form(['admin/changecredits']) ?> 
+<?= $this->tag->select(['user_id', $users, 'using' => ['user_id', 'email'], 'class' => 'form-control']) ?>
+<?= $this->tag->select(['credit_value', $credits, 'using' => ['credit_value', 'credit_name'], 'class' => 'form-control']) ?>
+ <?= $this->tag->submitButton(['submit', 'class' => 'btn btn--ghost btn--epsilon btn--right-arrow btn--medium icon icon--right-open-1 icon--margin-alpha']) ?>
+
+<?= $this->tag->endForm() ?>
+
+<?php } ?>
+
+<?php if ($auth['lvl'] < 6) { ?>
+<?php
+$this->response->redirect('');
+?>
+<?php } ?>
+</div>

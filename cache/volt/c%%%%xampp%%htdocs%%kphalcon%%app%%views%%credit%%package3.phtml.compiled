@@ -1,0 +1,17 @@
+<h2 class="creditpack3 creditpacks">15 Tickets</h2>
+<h4 class="money">€1200,-</h4>
+
+<input type="submit" value="Koop Tickets" class="btn btn--ghost btn--epsilon btn--right-arrow btn--medium icon icon--right-open-1 icon--margin-alpha" data-fancybox data-src="#kooptickets15" href="javascript:;">
+
+<div style="display: none;" id="kooptickets15">
+	<div class="container container-beta">
+	<h6>Weet je zeker dat je 15 tickets wil aanschaffen?</h6>
+		<p>Om bij een masterclass aanwezig te kunnen zijn hebt u een ticket nodig. Deze kunt u hier aanschaffen. Hoe meer tickets u aanschaft, des te goedkoper ze worden.</p>
+		<?= $this->tag->form(['session/buycredit']) ?> 
+		<?= $this->tag->textField(['credits', 'value' => '15', 'style' => 'display:none']) ?>
+		<?= $this->tag->submitButton(['submit', 'class' => 'btn btn-primary']) ?>
+		<?= $this->tag->endForm() ?>
+	</div>
+</div>		
+
+	

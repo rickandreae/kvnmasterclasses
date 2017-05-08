@@ -1,0 +1,42 @@
+<header id="header" class="header" data-extension="Contact" style="background-image: url('http://kweekvijvernoord.com/wp-content/uploads/2017/04/Kweekvijver_young-creatives.jpg');">
+
+	
+      
+
+ <div class="container header__container">
+
+            
+            <div class="header__inner header__inner--large">
+
+                <div class="header__responsive-line">
+
+                    <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/img/top-line-header-title.png">
+
+                </div>
+
+                <h1 class="header__title text-transform-uppercase">Admin Dashboard:<br>{{auth['firstname']}} {{auth['lastname']}}</h1>
+
+                <div class="header__responsive-line">
+
+                    <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/img/bottom-line-header-title.png">
+
+                </div>
+
+            </div>
+
+        </div>
+
+</header>
+<div class="col-md-4">
+{% for mediabrons in mediabrons %}
+<li>	
+<img src="/kphalcon/public/img/thumbnail/{{ mediabrons.thumbnail }}.png" height="200" width="300"></img>
+<a href="/kphalcon/mediaplayer/deletevideo/{{ mediabrons.media_id }}/">Delete video</a>
+</br>
+<h1>{{mediabrons.titel}}</h1>
+ </br>
+{{mediabrons.description}}
+</li>	
+{% endfor %} 
+</div>
+

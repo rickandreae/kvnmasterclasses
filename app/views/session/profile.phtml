@@ -1,0 +1,81 @@
+<header id="header" class="header" data-extension="Contact" style="background-image: url('http://kweekvijvernoord.com/wp-content/uploads/2017/04/Kweekvijver_young-creatives.jpg');">
+
+	
+      
+
+ <div class="container header__container">
+
+            
+            <div class="header__inner header__inner--large">
+
+                <div class="header__responsive-line">
+
+                    <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/img/top-line-header-title.png">
+
+                </div>
+
+                <h1 class="header__title text-transform-uppercase">JOUW PROFIEL GEGEVENS: <br>{{auth['firstname']}} {{auth['lastname']}}</h1>
+
+                <div class="header__responsive-line">
+
+                    <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/img/bottom-line-header-title.png">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+<div class="container">
+<div>
+<img src="/kphalcon/public/img/default.png" height="300px" width="300px";></img>
+</div>
+<div>
+    <a id="nav-bar-call-trigger" class="nav-bar__call icon icon--call"></a>
+<p>{{auth['firstname']}} {{auth['lastname']}}</p>
+<p>{{auth['email']}}</p>
+<p>{{auth['phone']}}</p>
+<a href="/kphalcon/session/changephone/"><p class="glyphicon glyphicon-pencil">Verander je telefoonnummer</p></a>
+<p>{{auth['address']}}</p>
+<p>{{auth['zipcode']}} {{auth['city']}}</p>
+<a href="/kphalcon/session/changeaddress/"><p class="glyphicon glyphicon-pencil">Verander je adres gegevens</p></a>
+<a href="/kphalcon/session/changepassword/"><p class="glyphicon glyphicon-pencil">Verander je wachtwoord</p></a>
+</div>
+</div>
+<div class="container container-beta"> 
+<h3>Uw gekochte masterclasses</h3>
+</div>
+   <section class="section section--alpha"> 
+        <div class="container">    
+            <section class="section section--alpha"> 
+                <div class="container">    
+                    <div id="cards" class="cards">
+                    <?php if (property_exists($single, 'user_id')):?>
+                    <?php foreach($single->Products as $p):?>
+                        <div class="card card--alpha" style="height: 483px;">
+                            <?php $media = mediabrons::findFirstBymedia_id($p->mediabrons_id);?>
+                                <a href="../mediaplayer/playbrons?id=<?=$p->mediabrons_id?>">  
+                                    <img src="/kphalcon/public/img/thumbnail/<?php echo $media->thumbnail;?>.jpg" height="200" width="300"></img>
+                                </a>
+                        <div class="card__content">
+                            <h5 class="card__title">{{media.titel}} </h5>
+                                <p class="card__intro" data-ellipsis="" style="word-wrap: break-word;">
+                                    {{media.description}}
+                                </p>
+                                <ul class="list-inline">
+                <a data-show-article="" class="btn btn--ghost btn--epsilon btn--right-arrow btn--medium icon icon--right-open-1 icon--margin-alpha" href="../mediaplayer/playbrons?id=<?=$p->mediabrons_id?>">bekijk video</a>
+
+        </ul>
+        </div>    
+        </div>
+<?php endforeach;?>
+<?php endif;?> 
+        </div>
+    </div>
+</div> 
+<?php if (property_exists($single, 'user_id')):?>
+    <?php foreach($single->Products as $p): ?>
+    <?=$p->mediabrons_id?>
+<?php endforeach;?>
+<?php endif;?>

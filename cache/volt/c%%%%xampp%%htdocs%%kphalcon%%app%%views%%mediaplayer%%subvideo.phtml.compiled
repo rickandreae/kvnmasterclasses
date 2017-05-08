@@ -1,0 +1,55 @@
+<header id="header" class="header" data-extension="Contact" style="background-image: url('http://kweekvijvernoord.com/wp-content/uploads/2017/04/Kweekvijver_young-creatives.jpg');">
+
+	
+      
+
+ <div class="container header__container">
+
+            
+            <div class="header__inner header__inner--large">
+
+                <div class="header__responsive-line">
+
+                    <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/img/top-line-header-title.png">
+
+                </div>
+
+                <h1 class="header__title text-transform-uppercase">Admin Dashboard:<br><?= $auth['firstname'] ?> <?= $auth['lastname'] ?></h1>
+
+                <div class="header__responsive-line">
+
+                    <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/img/bottom-line-header-title.png">
+
+                </div>
+
+            </div>
+
+        </div>
+
+</header>
+<?php if ($auth['lvl'] == 6) { ?>
+<?php
+    $mediabrons = mediabrons::find();
+?>
+
+<div class="container">
+<h1>Brons</h1>
+<?= $this->tag->form(['mediaplayer/subvideo']) ?>
+<?= $this->tag->select(['mediabrons', $mediabrons, 'using' => ['media_id', 'titel'], 'class' => 'form-control']) ?>
+<?= $this->tag->textField(['subvideos', 'class' => 'form-control', 'placeholder' => 'videolink : https://player.vimeo.com/video/voorbeeld']) ?>
+<?= $this->tag->textField(['thumbnail', 'class' => 'form-control', 'placeholder' => 'Naam van thumbnail //Bijvoorbeeld: ondernemen']) ?>
+<?= $this->tag->textField(['titel', 'class' => 'form-control', 'placeholder' => 'Titel hier']) ?>
+<?= $this->tag->submitButton(['submit', 'class' => 'btn btn-primary']) ?>
+<?= $this->tag->endForm() ?>
+
+<h1>Upload thumbnail hier</h1>
+<?= $this->tag->form(['mediaplayer/upload', 'enctype' => 'multipart/form-data', 'method' => 'POST']) ?>
+<?= $this->tag->fileField(['files[]', 'class' => 'form-control']) ?>
+<?= $this->tag->submitButton(['Upload Image', 'class' => 'btn btn--ghost btn--epsilon btn--right-arrow btn--medium icon icon--right-open-1 icon--margin-alpha']) ?>
+<?= $this->tag->endForm() ?>
+ 
+</div>
+
+
+<?php } ?>
+<?= $message ?>

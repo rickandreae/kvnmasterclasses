@@ -1,0 +1,23 @@
+<!DOCTYPE html> 
+<html class="js flexbox flexboxlegacy canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths csspositionsticky app-active  js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths csspositionsticky"> 
+	<head>
+	    <title>Kphalcon</title> 
+	    	{{ stylesheet_link('css/style.css')}}
+	    	{{ stylesheet_link('css/alignpackage.css')}}
+	    	{{ stylesheet_link('css/jquery.fancybox.min.css')}}
+	</head>
+	<body>
+		
+			{{ partial("layouts/header")}} 
+			{{ content()}} 
+			{{ javascript_include("/mpdf/mpdf.php") }}
+					 
+			{{ javascript_include('/js/jquery-3.1.1.min.js') }} 
+			{{ javascript_include('/js/main.js') }}
+			{{ javascript_include('/js/register.js') }}
+			{{ javascript_include('/js/jquery.min.js')}}
+			{{ javascript_include('https://cloud.tinymce.com/stable/tinymce.min.js')}}
+			{{ javascript_include('/plugin/tinymce/init-tinymce.js')}}
+			{{ javascript_include('/js/jquery.fancybox.min.js') }}
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<header id="header" class="header" data-extension="Contact" style="background-image: url('http://kweekvijvernoord.com/wp-content/uploads/2017/04/Kweekvijver_header.jpg');">
+
+        
+      
+
+ <div class="container header__container">
+
+            
+            <div class="header__inner header__inner--large">
+
+                <div class="header__responsive-line">
+
+                    <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/img/top-line-header-title.png">
+
+                </div>
+
+                <h1 class="header__title text-transform-uppercase">REGISTREER NU EEN ACCOUNT EN VOLG MASTERCLASSES.</h1>
+
+                <div class="header__responsive-line">
+
+                    <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/img/bottom-line-header-title.png">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+<?php 
+$roles = roles::find("");
+$schools = schools::find("");
+$credits = credits::find("");
+
+?>
+{{ form("session/register") }} 
+<div class="container container-beta">
+    <h2 class="centertext">Registreren</h2>
+    <div class="inlog">
+
+        {{ select("credits", credits, "using": ["credit_value", "credit_value"], "useEmpty" : true, "emptyText": "Kies aantal tickets..", "emptyValue":"@")}}
+
+        {{ select("roles_id", roles, "using": ["roles_id", "roles_type"],  "class": "form-control",  "useEmpty" : true, "emptyText": "Kies..", "emptyValue":"@", "onchange" : "reveal_schools(); reveal_entrepreneur_form();") }}
+        
+        {{ select("school_id", schools, "using": ["school_id", "school_name"], "useEmpty": true, "emptyText": "Kies uw school...", "emptyValue": "@", "class": "form-control", "style" : "display:none;", "onchange" : "set_input_value();" ) }}
+
+        {{ text_field("companies", "class": "form-control", "placeholder": "Organisatie") }}
+
+        {{ text_field("firstname", "class": "form-control", "placeholder": "Voornaam/contactpersoon") }}
+            
+        {{ text_field("lastname", "class": "form-control", "placeholder": "Achternaam") }}
+        
+        {{ text_field("aEmail", "class": "form-control","placeholder": "E-mail", "onkeyup" : "fuse_email();") }}
+
+        {{ text_field("bEmail", "class": "form-control", "placeholder": "@example.com", "readonly":"true" ) }}
+        
+        {{ email_field("email", "class": "form-control", "placeholder": "E-mail" , "style":"display:none;") }}
+
+        {{ password_field("password", "class": "form-control", "placeholder": "Password")}}
+
+        {{ tel_field("phone", "class": "form-control", "placeholder": "Telefoonnummer") }}
+
+        {{ text_field("address", "class": "form-control", "placeholder": "Adres", "pattern": "[a-zA-Z]{99}\s?[1-999]{999}\[a-z]{1}") }} 
+
+        {{ text_field("zipcode", "class": "form-control", "placeholder": "Postcode" , "pattern": "[1-9][0-9]{3}\s?[a-zA-Z]{2}") }}
+
+        {{ text_field("city", "class": "form-control", "placeholder": "Plaats") }}
+        
+        {{ submit_button("Registreren", "class": "inlogpos btn btn--ghost btn--epsilon btn--right-arrow btn--medium icon icon--right-open-1 icon--margin-alpha") }}
+        <input type="hidden" name="<?php echo $this->security->getTokenKey() ?>"
+        value="<?php echo $this->security->getToken() ?>"/>
+     </div>   
+</div>
+{{ end_form() }}

@@ -1,0 +1,31 @@
+<header id="header" class="header" data-extension="Contact" style="background-image: url('http://kweekvijvernoord.com/wp-content/uploads/2017/04/Kweekvijver_nieuws.jpg');">
+        <div class="container header__container">
+        	<div class="header__inner header__inner--large">
+
+               
+
+            </div>
+
+                        <div class="header__sub-text-container">
+
+                <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/svg/top-line-header-sub-text.svg">
+                <h4 class="header__sub-text text-transform-uppercase">Young creatives</h4>
+                <img src="http://kweekvijvernoord.com/wp-content/themes/kvn/assets/svg/bottom-line-header-sub-text.svg">
+            </div>
+        </div>
+    </header>
+{{ form('changepass') }}
+<div class="container container-beta">
+    <h3 class="centertext">Wachtwoord vergeten?</h3>
+
+    <div class="inlog">
+	
+	<p>Vul hier je email in</p>
+
+	{{ text_field("email", "class": "form-control", "placeholder": "Email") }}
+
+	{{ submit_button("Verstuur", "class": "inlogpos btn btn--ghost btn--epsilon btn--right-arrow btn--medium icon icon--right-open-1 icon--margin-alpha") }}
+</div>
+</div>
+{{ end_form() }}
+
